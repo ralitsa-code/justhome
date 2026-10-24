@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}{{ object.address }} | JustHome{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container detail-layout">
+        <div>
+            <a class="back-link" href="{% url 'real_estate_list' %}">← Back to properties</a>
+            <div class="detail-image">
+                {% if object.main_image %}
+                    <img src="{{ object.main_image.url }}" alt="{{ object.address }}">
+                {% else %}
+                    <div class="image-placeholder"><span>⌂</span><small>Property photo</small></div>
+                {% endif %}
+            </div>
+        </div>
+        <aside class="detail-panel">
+            <span class="eyebrow">{{ object.get_real_estate_type_display }}</span>
+            <h1>{{ object.address }}</h1>
+            <p class="detail-price">{{ object.price|floatformat:0 }} €</p>
+            <div class="detail-stat"><span>Area</span><strong>{{ object.area }} m²</strong></div>
+            <div class="detail-description"><h2>About this property</h2><p>{{ object.description }}</p></div>
+            <div class="detail-description">
+                <h2>Features</h2>
+                {% for feature in object.feature.all %}
+                    <span class="tag">{{ feature.name }}</span>
+                {% empty %}
+                    <p class="muted">No features added yet.</p>
+                {% endfor %}
+            </div>
+            {% if object.broker %}
+                <div class="broker-mini"><span class="avatar">{{ object.broker.name|first|upper }}</span><div><small>Your broker</small><strong>{{ object.broker.name }}</strong><span>{{ object.broker.email }}</span></div></div>
+            {% endif %}
+            <div class="form-actions">
+                <a class="button button-primary" href="{% url 'real_estate_update' object.pk %}">Edit property</a>
+                <a class="button button-danger-outline" href="{% url 'real_estate_delete' object.pk %}">Delete</a>
+            </div>
+        </aside>
+    </div>
+</section>
+{% endblock %}

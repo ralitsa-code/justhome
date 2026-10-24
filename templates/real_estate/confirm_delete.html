@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Delete property | JustHome{% endblock %}
+{% block content %}
+<section class="section section-small">
+    <div class="container narrow-container">
+        <form method="post" class="form-card confirm-card">
+            {% csrf_token %}
+            <span class="confirm-icon">!</span>
+            <span class="eyebrow">Please confirm</span>
+            <h1>Delete this property?</h1>
+            <p>You are about to delete <strong>{{ real_estate.address }}</strong>. This action cannot be undone.</p>
+            <div class="form-actions">
+                <button class="button button-danger" type="submit">Yes, delete</button>
+                <a class="button button-secondary" href="{% url 'real_estate_detail' real_estate.pk %}">Cancel</a>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

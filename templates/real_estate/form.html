@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{% if form.instance.pk %}Edit property{% else %}Add property{% endif %} | JustHome{% endblock %}
+{% block content %}
+<section class="page-banner">
+    <div class="container">
+        <span class="eyebrow">Property management</span>
+        <h1>{% if form.instance.pk %}Edit property{% else %}Add a property{% endif %}</h1>
+        <p>Fill in the details below. You can update them later.</p>
+    </div>
+</section>
+<section class="section section-small">
+    <div class="container narrow-container">
+        <form method="post" enctype="multipart/form-data" class="form-card">
+            {% csrf_token %}
+            {% if form.non_field_errors %}<div class="form-errors">{{ form.non_field_errors }}</div>{% endif %}
+            {% for field in form %}
+                <div class="form-field">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.help_text %}<small class="help-text">{{ field.help_text }}</small>{% endif %}
+                    {% for error in field.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+                </div>
+            {% endfor %}
+            <div class="form-actions">
+                <button class="button button-primary" type="submit">Save property</button>
+                <a class="button button-secondary" href="{% url 'real_estate_list' %}">Cancel</a>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

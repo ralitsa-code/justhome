@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}JustHome{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="brand" href="{% url 'index' %}">
+                <span class="brand-mark">J</span>
+                <span>just<span class="brand-light">home</span></span>
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'real_estate_list' %}">Properties</a>
+{#                <a href="{% url 'broker_list' %}">Brokers</a>#}
+{#                <a href="{% url 'feature_list' %}">Features</a>#}
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% if messages %}
+            <div class="container messages">
+                {% for message in messages %}
+                    <div class="message message-{{ message.tags|default:'info' }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a class="brand brand-footer" href="{% url 'index' %}">
+                <span class="brand-mark">J</span>
+                <span>just<span class="brand-light">home</span></span>
+            </a>
+            <p>Find a place that feels like home.</p>
+            <span class="footer-copy">© {% now "Y" %} JustHome</span>
+        </div>
+    </footer>
+</body>
+</html>

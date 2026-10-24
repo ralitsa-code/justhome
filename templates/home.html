@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}JustHome | Find your place{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-copy">
+            <span class="eyebrow">A better way to find home</span>
+            <h1>Find a place<br>to <span class="text-accent">call home.</span></h1>
+            <p class="hero-text">Explore thoughtfully selected properties and take the next step toward your new home.</p>
+            <div class="hero-actions">
+                <a class="button button-primary" href="{% url 'real_estate_list' %}">Explore properties</a>
+{#                <a class="button button-secondary" href="{% url 'broker_list' %}">Meet our brokers</a>#}
+            </div>
+            <div class="hero-note"><span class="status-dot"></span> Your next chapter starts here</div>
+        </div>
+        <div class="hero-visual" aria-label="Decorative property illustration">
+            <div class="hero-visual-top"><span>JUSTHOME COLLECTION</span><span>01 / 03</span></div>
+            <div class="house-illustration">
+                <div class="house-roof"></div>
+                <div class="house-body">
+                    <div class="house-window"></div>
+                    <div class="house-door"></div>
+                    <div class="house-window"></div>
+                </div>
+                <div class="house-ground"></div>
+            </div>
+            <div class="visual-caption"><span>Thoughtful spaces.</span><strong>New beginnings.</strong></div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">Start exploring</span>
+                <h2>Find what fits your life</h2>
+            </div>
+            <p>Browse our property collection and discover the details that matter to you.</p>
+        </div>
+        <div class="feature-grid">
+            <a class="feature-tile" href="{% url 'real_estate_list' %}">
+                <span class="tile-icon">⌂</span>
+                <h3>Properties</h3>
+                <p>Explore houses, apartments and studios.</p>
+                <span class="tile-link">View properties <span aria-hidden="true">→</span></span>
+            </a>
+            {% comment %}
+            <a class="feature-tile" href="{% url 'broker_list' %}">
+                <span class="tile-icon">↗</span>
+                <h3>Our brokers</h3>
+                <p>Meet the people ready to help you.</p>
+                <span class="tile-link">Meet the team <span aria-hidden="true">→</span></span>
+            </a>
+
+            <a class="feature-tile" href="{% url 'feature_list' %}">
+                <span class="tile-icon">✳</span>
+                <h3>Features</h3>
+                <p>See the details that make a property special.</p>
+                <span class="tile-link">Explore features <span aria-hidden="true">→</span></span>
+            </a>
+            {% endcomment %}
+        </div>
+    </div>
+</section>
+{% endblock %}

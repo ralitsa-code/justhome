@@ -18,6 +18,13 @@ class RealEstate(models.Model):
     price = models.IntegerField(verbose_name="Price")
     description = models.TextField(verbose_name="Description")
 
+    main_image = models.ImageField(
+        upload_to='properties/',
+        blank=True,
+        null=True,
+        verbose_name='Main image',
+    )
+
     broker = models.ForeignKey(
         Broker,
         on_delete=models.SET_NULL,
