@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+
+{% block title %}Page not found | JustHome{% endblock %}
+
+{% block content %}
+<section class="section section-small">
+    <div class="container narrow-container">
+        <div class="form-card confirm-card error-page">
+            <span class="eyebrow">Error 404</span>
+            <h1>Page not found</h1>
+            <p>Sorry, the page you are looking for doesn't exist or may have been moved.</p>
+
+            <div class="form-actions">
+                <a href="{% url 'index' %}" class="button button-primary">
+                    Back to home
+                </a>
+                <a href="{% url 'real_estate_list' %}" class="button button-secondary">
+                    View properties
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

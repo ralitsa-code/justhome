@@ -1,0 +1,43 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ object.name }} | JustHome{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+    <div class="container">
+        <span class="eyebrow">Our team</span>
+        <h1>{{ object.name }}</h1>
+        <p>Get to know your real estate broker.</p>
+    </div>
+</section>
+
+<section class="section section-small">
+    <div class="container narrow-container">
+        <div class="form-card">
+            {% if object.picture %}
+                <img class="broker-photo"
+                     src="{{ object.picture.url }}"
+                     alt="{{ object.name }}">
+            {% endif %}
+
+            <h2>{{ object.name }}</h2>
+            <p><strong>Email:</strong>
+                <a href="mailto:{{ object.email }}">{{ object.email }}</a>
+            </p>
+            <p><strong>Phone:</strong> {{ object.phone }}</p>
+
+            <div class="form-actions">
+                <a class="button button-primary"
+                   href="{% url 'broker_update' object.pk %}">
+                    Edit broker
+                </a>
+                <a class="button button-secondary"
+                   href="{% url 'broker_list' %}">
+                    Back to brokers
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

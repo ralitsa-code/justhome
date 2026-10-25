@@ -184,3 +184,59 @@ button, input, select, textarea { font: inherit; }
     .detail-panel, .form-card { padding: 22px; }
     .footer-inner { align-items: flex-start; flex-direction: column; gap: 8px; }
 }
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.error-page {
+    text-align: center;
+    padding: 48px 32px;
+}
+
+.error-page h1 {
+    margin: 16px 0;
+}
+
+.error-page p {
+    margin-bottom: 24px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: min(100%, 800px);
+    margin-bottom: 28px;
+    padding: 14px;
+}
+
+.search-form .form-field {
+    flex: 1;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.search-form button {
+    flex-shrink: 0;
+}
+
+.search-form select {
+    min-height: 46px;
+    padding: 11px 13px;
+    border: 1px solid #d8e1e4;
+    border-radius: 9px;
+    background: #fbfcfc;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.search-form select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(47, 143, 131, .12);
+}
+
+.error-page .form-actions {
+    justify-content: center;
+}

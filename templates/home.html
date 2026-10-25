@@ -9,7 +9,7 @@
             <p class="hero-text">Explore thoughtfully selected properties and take the next step toward your new home.</p>
             <div class="hero-actions">
                 <a class="button button-primary" href="{% url 'real_estate_list' %}">Explore properties</a>
-{#                <a class="button button-secondary" href="{% url 'broker_list' %}">Meet our brokers</a>#}
+                <a class="button button-secondary" href="{% url 'broker_list' %}">Meet our brokers</a>
             </div>
             <div class="hero-note"><span class="status-dot"></span> Your next chapter starts here</div>
         </div>
@@ -45,21 +45,18 @@
                 <p>Explore houses, apartments and studios.</p>
                 <span class="tile-link">View properties <span aria-hidden="true">→</span></span>
             </a>
-            {% comment %}
             <a class="feature-tile" href="{% url 'broker_list' %}">
                 <span class="tile-icon">↗</span>
                 <h3>Our brokers</h3>
                 <p>Meet the people ready to help you.</p>
                 <span class="tile-link">Meet the team <span aria-hidden="true">→</span></span>
             </a>
-
             <a class="feature-tile" href="{% url 'feature_list' %}">
                 <span class="tile-icon">✳</span>
                 <h3>Features</h3>
                 <p>See the details that make a property special.</p>
                 <span class="tile-link">Explore features <span aria-hidden="true">→</span></span>
             </a>
-            {% endcomment %}
         </div>
     </div>
 </section>

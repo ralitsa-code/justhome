@@ -1,19 +1,46 @@
 {% extends "base.html" %}
 {% block title %}Delete property | JustHome{% endblock %}
 {% block content %}
-<section class="section section-small">
-    <div class="container narrow-container">
-        <form method="post" class="form-card confirm-card">
-            {% csrf_token %}
-            <span class="confirm-icon">!</span>
-            <span class="eyebrow">Please confirm</span>
-            <h1>Delete this property?</h1>
-            <p>You are about to delete <strong>{{ real_estate.address }}</strong>. This action cannot be undone.</p>
-            <div class="form-actions">
-                <button class="button button-danger" type="submit">Yes, delete</button>
-                <a class="button button-secondary" href="{% url 'real_estate_detail' real_estate.pk %}">Cancel</a>
-            </div>
-        </form>
-    </div>
-</section>
+    <section class="section section-small">
+        <div class="container narrow-container">
+            <form method="post" class="form-card confirm-card">
+                {% csrf_token %}
+                <span class="confirm-icon">!</span>
+                <span class="eyebrow">Please confirm</span>
+                <h1>Delete this property?</h1>
+                <p>You are about to delete this property. This action cannot be undone.</p>
+                <div class="form-group">
+                    <label for="real_estate_type">Property type</label>
+                    <input
+                            type="text"
+                            id="real_estate_type"
+                            value="{{ real_estate.get_real_estate_type_display }}"
+                            disabled
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input
+                            type="text"
+                            id="address"
+                            value="{{ real_estate.address }}"
+                            disabled
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input
+                            type="text"
+                            id="price"
+                            value="{{ real_estate.price }} €"
+                            disabled
+                    >
+                </div>
+                <div class="form-actions">
+                    <button class="button button-danger" type="submit">Yes, delete</button>
+                    <a class="button button-secondary" href="{% url 'real_estate_detail' real_estate.pk %}">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </section>
 {% endblock %}

@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,21 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <header class="site-header">
-        <div class="container nav-wrap">
-            <a class="brand" href="{% url 'index' %}">
-                <span class="brand-mark">J</span>
-                <span>just<span class="brand-light">home</span></span>
-            </a>
-            <nav class="main-nav" aria-label="Main navigation">
-                <a href="{% url 'index' %}">Home</a>
-                <a href="{% url 'real_estate_list' %}">Properties</a>
-{#                <a href="{% url 'broker_list' %}">Brokers</a>#}
-{#                <a href="{% url 'feature_list' %}">Features</a>#}
-            </nav>
-        </div>
-    </header>
-
+    {% include 'partials/header.html' %}
     <main>
         {% if messages %}
             <div class="container messages">
@@ -33,16 +20,6 @@
         {% endif %}
         {% block content %}{% endblock %}
     </main>
-
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <a class="brand brand-footer" href="{% url 'index' %}">
-                <span class="brand-mark">J</span>
-                <span>just<span class="brand-light">home</span></span>
-            </a>
-            <p>Find a place that feels like home.</p>
-            <span class="footer-copy">© {% now "Y" %} JustHome</span>
-        </div>
-    </footer>
+    {% include 'partials/footer.html' %}
 </body>
 </html>

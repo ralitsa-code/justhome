@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='home.html'), name='index'),
     path('properties/', include('real_estate.urls')),
+    path('features/', include('features.urls')),
+    path('brokers/', include('broker.urls'))
 ]
 
 if settings.DEBUG:

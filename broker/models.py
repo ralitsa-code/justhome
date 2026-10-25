@@ -20,3 +20,6 @@ class Broker(models.Model):
         null=True,
         upload_to='broker/',
     )
+
+    def __str__(self):
+        return self.name

@@ -35,3 +35,7 @@ class RealEstate(models.Model):
         Feature,
         blank=True,
     )
+
+
+    def __str__(self):
+        return f'{self.real_estate_type}|{self.address}|{self.price}'
